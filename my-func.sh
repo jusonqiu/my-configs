@@ -3,9 +3,9 @@
 
 function freemem(){
 	 free -h && sync
-	 sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
-     sudo sh -c 'echo 2 >/proc/sys/vm/drop_caches'
-	 sudo sh -c 'echo 3 >/proc/sys/vm/drop_caches'
+	 sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches' && sync
+     sudo sh -c 'echo 2 >/proc/sys/vm/drop_caches' && sync
+	 sudo sh -c 'echo 3 >/proc/sys/vm/drop_caches' && sync
 	 sync && free -h && sync
  }
 
@@ -37,6 +37,6 @@ function androidClearAppData(){
 }
 
 function androidLogcatPkg(){
-	python2 logcatPkg.py $1
+	python2 $ZSH/logcatPkg.py $1
 }
 
